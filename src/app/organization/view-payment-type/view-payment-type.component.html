@@ -1,0 +1,71 @@
+<div class="container">
+  <h4>Payment Type</h4>
+  <div class="pull-right btn-group">
+    <a href="#/createPaymentType/" class="btn btn-primary" has-permission='CREATE_PAYMENTTYPE'><i class="fa fa-plus "></i>&nbsp;&nbsp;{{'label.button.paymenttype' | translate}}</a>
+  </div>
+  <br>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-striped">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let paymentType"> {{ paymentType.name }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let paymentType"> {{ paymentType.description }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="iscashpayment">
+        <th mat-header-cell *matHeaderCellDef> Is Cash Payment? </th>
+        <td mat-cell *matCellDef="let paymentType"> {{ paymentType.iscashpayment }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Position </th>
+        <td mat-cell *matCellDef="let paymentType"> {{ paymentType.position }} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <table class="table  table-striped">
+      <thead>
+        <tr>
+          <th>{{ 'label.heading.name' | translate }}</th>
+          <th>{{ 'label.heading.description' | translate }}</th>
+          <th>{{ 'label.heading.iscashpayment' | translate }}</th>
+          <th>{{ 'label.heading.position' | translate }}</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="paymentType in paymentTypes">
+          <td class="col-md-3">
+            <span>{{paymentType.name}}</span>
+
+          </td>
+          <td class="col-md-4">
+            <span>{{paymentType.description}}</span>
+          </td>
+          <td class="col-md-1">
+            <span>{{paymentType.isCashPayment}}</span>
+          </td>
+          <td class="col-md-1">
+            <span>{{paymentType.position}}</span>
+          </td>
+          <td class="col-md-1">
+            <a type="button" class="btn btn-primary" has-permission='UPDATE_PAYMENTTYPE' data-ng-click="showEdit(paymentType.id)"><i
+                class="fa fa-edit "></i></a>
+          </td>
+          <td class="col-md-1">
+            <a class="delete" type="button" has-permission='DELETE_PAYMENTTYPE' data-ng-click="deletePaymentType(paymentType.id)"><i
+                class="fa fa-times-circle fa-2x"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
