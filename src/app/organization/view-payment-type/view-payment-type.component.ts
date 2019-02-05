@@ -20,6 +20,11 @@ import { PaymentType } from './payment-type.model';
 })
 export class ViewPaymentTypeComponent implements OnInit {
 
+  /** Data source for table */
+  dataSource: any;
+  /** Displayed Columns in the table */
+  displayedColumns: any = ['name', 'description', 'isCashPayment', 'position', 'edit', 'delete'];
+
   /**
    * Retrieves the Payment Type data.
    * Adds data to the table.
@@ -29,9 +34,20 @@ export class ViewPaymentTypeComponent implements OnInit {
    */
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private organizationsService: OrganizationService) { }
+              private organizationsService: OrganizationService) {
+    this.route.data.subscribe((data: {
+        paymentTypesData: any
+      }) => {
+        this.dataSource = data.paymentTypesData;
+    });
+  }
 
   ngOnInit() {
   }
 
+  deletePaymentType(paymentTypeId: any) {
+    this.organizationsService.deletePaymentType(paymentTypeId).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
 }

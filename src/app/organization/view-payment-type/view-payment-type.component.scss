@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%
+}
+
+.toolbar > h4 {
+  float: left;
+  margin: 0;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.toolbar > .btn-group {
+  border: none;
+  height: 39px;
+  min-width: 39px;
+}

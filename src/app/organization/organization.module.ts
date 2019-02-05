@@ -9,6 +9,9 @@ import { OrganizationRoutingModule } from './organization-routing.module';
 import { OrganizationComponent } from './organization.component';
 import { ViewPaymentTypeComponent } from './view-payment-type/view-payment-type.component';
 
+/** Custom Resolvers */
+import { ViewPaymentTypeResolver } from './view-payment-type/view-payment-type.resolver';
+
 /**
  * Organization Module
  *
@@ -22,6 +25,9 @@ import { ViewPaymentTypeComponent } from './view-payment-type/view-payment-type.
   declarations: [
     OrganizationComponent,
     ViewPaymentTypeComponent
-  ]
+  ],
+providers: [
+  ViewPaymentTypeResolver
+]
 })
 export class OrganizationModule { }

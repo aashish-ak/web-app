@@ -31,7 +31,7 @@ const routes: Routes = [
           component: ViewPaymentTypeComponent,
           data: { title: extract('Payment Type'), breadcrumb: 'Payment Type', },
           resolve: {
-            paymentTypes: ViewPaymentTypeResolver
+            paymentTypesData: ViewPaymentTypeResolver
           }
         }
       ]

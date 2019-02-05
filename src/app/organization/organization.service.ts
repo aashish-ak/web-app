@@ -20,8 +20,12 @@ export class OrganizationService {
    */
   constructor (private http: HttpClient) { }
 
-  getAllPaymentTypes(){
-    return this.http.get();
+  getAllPaymentTypes() {
+    return this.http.get(`/paymenttypes`);
+  }
+
+  deletePaymentType(paymentTypeId: any) {
+    return this.http.delete(`/paymenttypes/${paymentTypeId}`);
   }
 
 }
