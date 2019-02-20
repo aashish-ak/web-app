@@ -12,6 +12,7 @@ import { CreateCodeComponent } from './codes/create-code/create-code.component';
 import { ExternalServicesComponent } from './external-services/external-services.component';
 import { ManageDataTablesComponent } from './manage-data-tables/manage-data-tables.component';
 import { ManageHooksComponent } from './manage-hooks/manage-hooks.component';
+import { CreateHookComponent } from './manage-hooks/create-hook/create-hook.component';
 import { RolesAndPermissionsComponent } from './roles-and-permissions/roles-and-permissions.component';
 import { ManageSurveysComponent } from './manage-surveys/manage-surveys.component';
 import { ManageSchedulerJobsComponent } from './manage-scheduler-jobs/manage-scheduler-jobs.component';
@@ -22,6 +23,8 @@ import { EditConfigurationComponent } from './global-configurations/edit-configu
 import { CodesResolver } from './codes/codes.resolver';
 import { ManageDataTablesResolver } from './manage-data-tables/manage-data-tables.resolver';
 import { ManageHooksResolver } from './manage-hooks/manage-hooks.resolver';
+import { TemplatesResolver } from './manage-hooks/create-hook/template.resolver';
+import { HooksTemplateResolver } from './manage-hooks/create-hook/hooks-template.resolver';
 import { RolesAndPermissionsResolver } from './roles-and-permissions/roles-and-permissions.resolver';
 import { ManageSurveysResolver } from './manage-surveys/manage-surveys.resolver';
 import { ManageSchedulerJobsResolver } from './manage-scheduler-jobs/manage-scheduler-jobs.resolver';
@@ -37,6 +40,14 @@ const routes: Routes = [
       {
         path: '',
         component: SystemComponent
+      },
+      {
+        path: 'addhook',
+        component: CreateHookComponent,
+        resolve: {
+          templates: TemplatesResolver,
+          hooksTemplate: HooksTemplateResolver
+        }
       },
       {
         path: 'codes',
@@ -135,12 +146,14 @@ const routes: Routes = [
   providers: [
     CodesResolver,
     ManageDataTablesResolver,
+    HooksTemplateResolver,
+    TemplatesResolver,
     ManageHooksResolver,
     RolesAndPermissionsResolver,
     ManageSurveysResolver,
     ManageSchedulerJobsResolver,
     GlobalConfigurationsResolver,
-    GlobalConfigurationResolver
+    GlobalConfigurationResolver,
   ]
 })
 export class SystemRoutingModule { }

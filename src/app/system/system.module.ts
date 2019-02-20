@@ -17,6 +17,7 @@ import { ManageSurveysComponent } from './manage-surveys/manage-surveys.componen
 import { ManageSchedulerJobsComponent } from './manage-scheduler-jobs/manage-scheduler-jobs.component';
 import { GlobalConfigurationsComponent } from './global-configurations/global-configurations.component';
 import { EditConfigurationComponent } from './global-configurations/edit-configuration/edit-configuration.component';
+import { CreateHookComponent } from './manage-hooks/create-hook/create-hook.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { EditConfigurationComponent } from './global-configurations/edit-configu
     ManageSurveysComponent,
     ManageSchedulerJobsComponent,
     GlobalConfigurationsComponent,
-    EditConfigurationComponent
+    EditConfigurationComponent,
+    CreateHookComponent,
   ]
 })
 export class SystemModule { }

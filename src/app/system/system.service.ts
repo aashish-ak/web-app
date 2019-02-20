@@ -26,6 +26,20 @@ export class SystemService {
   }
 
   /**
+   * @returns {Observable<any>} All templates.
+   */
+  getTemplates(): Observable<any> {
+    return this.http.get('/templates');
+  }
+
+  /**
+   * @returns {Observable<any>} Hooks Template.
+   */
+  getHooksTemplate(): Observable<any> {
+    return this.http.get('/templates');
+  }
+
+  /**
    * @returns {Observable<any>} Hooks.
    */
   getHooks(): Observable<any> {
